@@ -42,10 +42,11 @@ You operate a used car lot, and need to have an application where you can update
 
 ### Technical Requirements
 
-1. Create one global variable (e.g. `CarLot`) and use the IIFE pattern to augment it two times in separate JavaScript files.
-1. The first IIFE should add a public function (e.g. `loadInventory`) that loads the `inventory.json` file and stores the inventory in a private variable. It should also expose a public getter to read the array of cars (e.g. `getInventory`).
-1. The second IIFE should augment the original one with a function that creates all of the `eventHandlers` that you need for the application. Name the function `activateEvents`.
-1. The final IIFE should augment the object with two more functions. One function resets the border thickness and background color for each car element back to the original values. The other function changes the thickness of the border of a car element, and changes its background color. The function must accept two arguments.
+1. You should add a function (e.g. `loadInventory`) that loads the `inventory.json` file and stores the inventory in a variable. This function should accept
+1. You should add a function `populatePage` that renders the inventory to the page.
+1. You should add a function that only creates all of the eventHandlers that you need for the application. Name the function `activateEvents`.
+1. You should add a function that resets the border thickness and background color for each car element back to the original values.
+1. You should add a function that changes the thickness of the border of a car element, and changes its background color. The function must accept two arguments:
     1. A car DOM element that was clicked on.
     1. A color name of your choice (see behavior requirement 5 above).
 
@@ -72,33 +73,24 @@ Please read, and feel free to use, the code below to get started.
 ##### quiz.js
 
 ```js
+var inventory = [];
+loadInventory();
+
 function populatePage (inventory) {
   // Loop over the inventory and populate the page
-  
+
   // Now that the DOM is loaded, establish all the event listeners needed
-  CarLot.activateEvents();
+  activateEvents();
 }
 
 // Load the inventory and send a callback function to be
 // invoked after the process is complete
-CarLot.loadInventory();
-```
 
-##### CarLot.js
+function loadInventory (callback) {
+  var inventoryLoader = new XMLHttpRequest();
 
-```js
-var CarLot = (function () {
-  var inventory = [];
+  inventoryLoader.addEventListener("load", function () {
 
-  return {
-    loadInventory: function (callback) {
-      var inventoryLoader = new XMLHttpRequest();
-
-      inventoryLoader.addEventListener("load", function () {
-
-      });
-    }
-  };
-
-})();
+  });
+}
 ```
