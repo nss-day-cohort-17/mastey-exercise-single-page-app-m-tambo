@@ -3,3 +3,22 @@ body {
    display: cover;
    margin: 0;
 }
+
+/*
+.container {
+   display: flex;
+   justify-content: center;
+}
+*/
+
+/*card borders*/
+#inventory div {
+   border: 1px solid black;
+   background-color: #ccc;
+}
+
+#inventory div img {
+   display: auto;
+   margin: 0;
+   padding: 0;
+}
