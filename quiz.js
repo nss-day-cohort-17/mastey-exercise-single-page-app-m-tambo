@@ -1,7 +1,7 @@
 // declare some variables globally
 var inventory;
 var carInventory = [];
-
+var textInput = document.querySelector('#textInput');
 
 
 // Load the inventory and send a callback function to be
@@ -26,7 +26,7 @@ function populatePage (e) {
         <div class="col-sm-4 col-md-4 unselected vehicle">
           <h1 class="text-center">${carInventory.cars[i].year} ${carInventory.cars[i].make} ${carInventory.cars[i].model}</h1>
           <img class="img-responsive" src="${carInventory.cars[i].image}" />
-          <p class="text-justify">${carInventory.cars[i].description}</p>
+          <p id="description" class="text-justify">${carInventory.cars[i].description}</p>
           <h3 class="text-center">Price: ${carInventory.cars[i].price}</h3>
         </div>
         `
@@ -36,28 +36,56 @@ function populatePage (e) {
 
 }
 
-// Now that the DOM is loaded, establish all the event listeners needed
 
+// establish event listeners needed
 function activateEvents () {
-  // listener to add styling to selected card
-  document.addEventListener('click', selectedItem)
-  // listener to clear input and add cursor to field
+  // listener to add styling to selected card and add cursor to input field
+  document.addEventListener('click', selectedItem);
+
   // listener to change item description when enter key is pressed
-  // listener to change item descrition when submit button is clicked
+  document.querySelector('#textInput').addEventListener('keyup', changeDescription);
+
+  // listener for submit button
+  document.querySelector('#submitButton').addEventListener('click', resetStyles);
+
 }
 
 
-// function to style selected card
+// function to style selected card and drop cursor in text field
 function selectedItem (e) {
     resetStyles();
+    console.log(e)
+
+    //target vehicle card divs
     if (e.target.className === "col-sm-4 col-md-4 unselected vehicle") {
-        console.log('hello')
         e.target.className += " selected"
-    }
+        // drop cursor in text field
+        textInput.focus();
+        textInput.select();
+    } else
+
+    //target elements inside vehicle cards
     if (e.target.parentElement.className === "col-sm-4 col-md-4 unselected vehicle") {
         e.target.parentElement.className += " selected"
+
+        // drop cursor in text field
+        textInput.focus();
+        textInput.select();
     } else {
         resetStyles();
+        textInput.blur();
+    }
+
+}
+
+// function to change vehicle description
+function changeDescription (e) {
+    console.log(e)
+    if (e.code === 'Enter') {
+        resetStyles()
+    } else {
+        // console.log(document.querySelector('.selected').childNodes)
+        document.querySelector('.selected').childNodes[5].innerHTML = textInput.value;
     }
 }
 
