@@ -1,7 +1,7 @@
 // declare some variables globally
 var inventory;
 var carInventory = [];
-var vehicleCards = document.querySelectorAll('.vehicle');
+
 
 
 // Load the inventory and send a callback function to be
@@ -44,38 +44,29 @@ function activateEvents () {
   // listener to clear input and add cursor to field
   // listener to change item description when enter key is pressed
   // listener to change item descrition when submit button is clicked
-  // listener to
 }
 
 
 // function to style selected card
 function selectedItem (e) {
+    resetStyles();
     if (e.target.className === "col-sm-4 col-md-4 unselected vehicle") {
         console.log('hello')
         e.target.className += " selected"
     }
     if (e.target.parentElement.className === "col-sm-4 col-md-4 unselected vehicle") {
         e.target.parentElement.className += " selected"
+    } else {
+        resetStyles();
     }
 }
 
 // function to reset card stlyes
 function resetStyles () {
+    var vehicleCards = document.querySelectorAll('.vehicle');
     for (var i = 0; i < vehicleCards.length; i++) {
-        vehicleCards[i].setAttribute("style", "background: clear");
-        vehicleCards[i].setAttribute("class", "col-sm-4 col-md-4 unselected vehicle");
+        vehicleCards[i].className = "col-sm-4 col-md-4 unselected vehicle";
     }
     document.querySelector('#textInput').value = '';
 
 }
-
-resetStyles()
-
-
-  // var carList = document.querySelectorAll('.vehicle')
-  // console.log(carList)
-  // for (var i = 0; i < carList.length; i++) {
-  //   carList[i].addEventListener('click', function () {
-  //   this.className += "selected";
-  //   })
-  // }
