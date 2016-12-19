@@ -11,7 +11,6 @@ function loadInventory () {
    inventoryLoader.addEventListener("load", populatePage);
    inventoryLoader.open("GET", 'inventory.json');
    inventoryLoader.send();
-   console.log()
 }
 
 loadInventory()
@@ -54,7 +53,6 @@ function activateEvents () {
 // function to style selected card and drop cursor in text field
 function selectedItem (e) {
     resetStyles();
-    console.log(e)
 
     //target vehicle card divs
     if (e.target.className === "col-sm-4 col-md-4 unselected vehicle") {
@@ -80,11 +78,10 @@ function selectedItem (e) {
 
 // function to change vehicle description
 function changeDescription (e) {
-    console.log(e)
     if (e.code === 'Enter') {
         resetStyles()
     } else {
-        // console.log(document.querySelector('.selected').childNodes)
+        // dynamically add text
         document.querySelector('.selected').childNodes[5].innerHTML = textInput.value;
     }
 }
