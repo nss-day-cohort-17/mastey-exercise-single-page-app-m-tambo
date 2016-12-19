@@ -13,7 +13,7 @@ body {
 
 
 /*card borders*/
-#inventory div {
+.unselected {
    border: 1px solid black;
    background-color: #ccc;
 }

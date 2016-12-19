@@ -1,5 +1,8 @@
+// declare some variables globally
 var inventory;
 var carInventory = [];
+var vehicleCards = document.querySelectorAll('.vehicle');
+
 
 // Load the inventory and send a callback function to be
 // invoked after the process is complete
@@ -20,7 +23,7 @@ function populatePage (e) {
   for (var i = 0; i < carInventory.cars.length; i++) {
     document.querySelector('#inventory').innerHTML +=
         `
-        <div class="col-sm-4 col-md-4 vehicle">
+        <div class="col-sm-4 col-md-4 unselected vehicle">
           <h1 class="text-center">${carInventory.cars[i].year} ${carInventory.cars[i].make} ${carInventory.cars[i].model}</h1>
           <img class="img-responsive" src="${carInventory.cars[i].image}" />
           <p class="text-justify">${carInventory.cars[i].description}</p>
@@ -36,27 +39,38 @@ function populatePage (e) {
 // Now that the DOM is loaded, establish all the event listeners needed
 
 function activateEvents () {
-  //listener to add selected class when clicked
-  document.addEventListener('click', function (e) {
-  console.log(e)
-  if (e.target.className === "col-sm-4 col-md-4 vehicle" || e.target.parentElement.className === "col-sm-4 col-md-4 vehicle") {
-    console.log('hello')
-    selectedItem(e.target)
-  }
-
-
-  })
+  // listener to add styling to selected card
+  document.addEventListener('click', selectedItem)
+  // listener to clear input and add cursor to field
+  // listener to change item description when enter key is pressed
+  // listener to change item descrition when submit button is clicked
+  // listener to
 }
+
 
 // function to style selected card
-function selectedItem () {
-  this.style.backgroundColor = 'blue'
+function selectedItem (e) {
+    if (e.target.className === "col-sm-4 col-md-4 unselected vehicle") {
+        console.log('hello')
+        e.target.className += " selected"
+    }
+    if (e.target.parentElement.className === "col-sm-4 col-md-4 unselected vehicle") {
+        e.target.parentElement.className += " selected"
+    }
 }
 
-// listener to reset card stlyes
+// function to reset card stlyes
 function resetStyles () {
+    for (var i = 0; i < vehicleCards.length; i++) {
+        vehicleCards[i].setAttribute("style", "background: clear");
+        vehicleCards[i].setAttribute("class", "col-sm-4 col-md-4 unselected vehicle");
+    }
+    document.querySelector('#textInput').value = '';
 
 }
+
+resetStyles()
+
 
   // var carList = document.querySelectorAll('.vehicle')
   // console.log(carList)
