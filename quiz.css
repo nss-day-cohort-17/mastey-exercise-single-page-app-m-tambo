@@ -4,14 +4,6 @@ body {
    margin: 0;
 }
 
-
-#inventory {
-   display: inline-flex;
-   justify-content: center;
-   align-items: stretch;
-}
-
-
 /*card borders*/
 .unselected {
    border: 1px solid black;
