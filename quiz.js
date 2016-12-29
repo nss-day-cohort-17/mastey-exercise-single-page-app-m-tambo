@@ -56,7 +56,7 @@ function selectedItem (e) {
 
     //target vehicle card divs
     if (e.target.className === "col-sm-4 col-md-4 unselected vehicle") {
-        highlighter(this, #ffffb3);
+        highlighter(e.target, "#ffffb3");
 
         // drop cursor in text field
         textInput.focus();
@@ -65,7 +65,7 @@ function selectedItem (e) {
 
     //target elements inside vehicle cards
     if (e.target.parentElement.className === "col-sm-4 col-md-4 unselected vehicle") {
-        highlighter(this, #ffffb3);
+        highlighter(e.target.parentElement, "#ffffb3");
 
         // drop cursor in text field
         textInput.focus();
@@ -79,8 +79,8 @@ function selectedItem (e) {
 
 // function to add bold and change color
 function highlighter (x, color) {
-  x += " selected";
-
+  x.className += " selected";
+  x.style.background = color;
 }
 
 
@@ -99,6 +99,7 @@ function resetStyles () {
     var vehicleCards = document.querySelectorAll('.vehicle');
     for (var i = 0; i < vehicleCards.length; i++) {
         vehicleCards[i].className = "col-sm-4 col-md-4 unselected vehicle";
+        vehicleCards[i].style.background = "#ccc";
     }
     document.querySelector('#textInput').value = '';
 
