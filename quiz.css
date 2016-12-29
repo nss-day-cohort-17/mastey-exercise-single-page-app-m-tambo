@@ -1,0 +1,23 @@
+body {
+   background-image: url(http://i.imgur.com/eEPRBU2.jpg);
+   display: cover;
+   margin: 0;
+}
+
+/*card borders*/
+.unselected {
+   border: 1px solid black;
+   background-color: #ccc;
+}
+
+#inventory div img {
+   margin: 0;
+   padding: 0;
+}
+
+/*class for selected vehicle card*/
+.selected {
+   border: 3px solid black;
+   box-shadow: 3px 3px 5px 6px #ccc;
+   background-color: #ffffb3;
+}

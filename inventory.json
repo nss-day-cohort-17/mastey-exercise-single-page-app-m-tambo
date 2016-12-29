@@ -1,0 +1,28 @@
+{
+  "cars": [
+    {
+      "make": "VW",
+      "model": "Bus",
+      "year": "1965",
+      "price": "55,555",
+      "description": "The interior is in excellent condition. The headliner, seat upholstery, door panels and floor mats are all very nice. This bus is complete with nicely reupholstered very hard to find middle seat.",
+      "image": "http://www.sunsetclassics.com/1965-vw-21-window-bus/images/1965-vw-21-window-bus-body.jpg"
+    },
+    {
+      "make": "VW",
+      "model": "Bus",
+      "year": "1969",
+      "price": "66,666",
+      "description": "This VW Bus features the extra horsepower of a 1776 cc high performance VW air cooled engine. If you have never drive or ridden in a VW Bus with a larger than stock engine you are in for a thrilling ride.",
+      "image": "https://s-media-cache-ak0.pinimg.com/originals/bf/38/f9/bf38f9f060da0c44b1b1b4ee2cc4b4a3.jpg"
+    },
+    {
+      "make": "VW",
+      "model": "Bus",
+      "year": "1976",
+      "price": "77,777",
+      "description": "Here's a beauty— a classic 1976 VW Bus from Sunset Classics in Minneapolis, Minnesota. This Westfalia camper bus is in amazing original condition inside and out and is ready for some fun-in-the-sun camping!",
+      "image": "https://usercontent2.hubstatic.com/9531191_f520.jpg"
+    }
+  ]
+}
