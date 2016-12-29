@@ -56,7 +56,8 @@ function selectedItem (e) {
 
     //target vehicle card divs
     if (e.target.className === "col-sm-4 col-md-4 unselected vehicle") {
-        e.target.className += " selected"
+        highlighter(this, #ffffb3);
+
         // drop cursor in text field
         textInput.focus();
         textInput.select();
@@ -64,7 +65,7 @@ function selectedItem (e) {
 
     //target elements inside vehicle cards
     if (e.target.parentElement.className === "col-sm-4 col-md-4 unselected vehicle") {
-        e.target.parentElement.className += " selected"
+        highlighter(this, #ffffb3);
 
         // drop cursor in text field
         textInput.focus();
@@ -75,6 +76,13 @@ function selectedItem (e) {
     }
 
 }
+
+// function to add bold and change color
+function highlighter (x, color) {
+  x += " selected";
+
+}
+
 
 // function to change vehicle description
 function changeDescription (e) {
